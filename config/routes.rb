@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
 
-  get  '/emojis',  to: 'emojis#show'
+  get  '/emojis', to: 'emojis#show'
+  get  '/emojis/index',  to: 'emojis#index'
   post '/emojis/create', to: 'emojis#create'
+
+  resources :emojis do
+    collection do
+      get 'search'
+    end
   end
+end

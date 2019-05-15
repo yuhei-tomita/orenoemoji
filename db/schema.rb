@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_053007) do
+ActiveRecord::Schema.define(version: 2019_05_14_052501) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_emojis", force: :cascade do |t|
+    t.integer "emoji_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "categories_id"
+  end
 
   create_table "emojis", force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "categories_id"
   end
 
 end

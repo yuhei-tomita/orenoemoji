@@ -1,12 +1,37 @@
+<div class="center jumbotron">
+<h1>ORE no EMOJI</h1>
+
+<h2>
+  an unofficial* directory of the best custom slack emojis
+</h2>
+
+<input type=form id="form" placeholder=":hogehoge:" style="width: 250px;"/>
+
+<!-- ここresultが帰ってきたときだけ表示にしたい -->
+<ul id="result">
+
+</ul>
+
+<hr>
+
+<ul class = "emojis">
 <% @emojis.each do |emoji| %>
-  <p>
-    <%= emoji.name %><br>
+  <li class = "emoji <%=emoji.name%>">
+    <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>">
+    <div>
     <%= image_tag emoji.image.url %>
-  </p>
+    </div>
+    <div>
+    <%= ":" + emoji.name + ":"%>
+    </div>
+    </a>
+  </li>
 <% end %>
+</ul>
 <hr>
 <%= form_for :emoji, url: 'emojis/create'  do |f| %>
   <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
   <p><%=f.label ":emoji_name:" %><br><%= f.text_field :name %></p>
   <p><%= f.submit value: '投稿' %></p>
 <% end %>
+</div>
