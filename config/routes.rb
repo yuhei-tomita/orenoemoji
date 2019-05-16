@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
 
   get  '/emojis', to: 'emojis#show'
+  get  '/emojis/new', to: 'emojis#new'
   get  '/emojis/index',  to: 'emojis#index'
   post '/emojis/create', to: 'emojis#create'
 

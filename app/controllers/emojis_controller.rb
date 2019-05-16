@@ -1,4 +1,7 @@
 class EmojisController < ApplicationController
+  def new
+  end
+
   def show
     @emojis = Emoji.all
   end
@@ -9,8 +12,11 @@ class EmojisController < ApplicationController
 
   def create
     @emoji = Emoji.new(permit_params)
-    @emoji.save!
-    redirect_to action: 'show'
+    if @emoji.save
+      redirect_to action: 'show'
+    else
+      render 'new'
+    end
   end
 
   def search
@@ -24,5 +30,4 @@ class EmojisController < ApplicationController
     def permit_params
       params.require(:emoji).permit(:name, :image)
     end
-
 end

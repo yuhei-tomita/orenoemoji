@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
-   process resize_to_fit:[150,100]
+   process resize_to_fit:[100,100]
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
@@ -18,6 +18,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+
+  def size_range
+    1..5.megabytes
+  end
+
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
