@@ -17,7 +17,7 @@
 <ul class = "emojis">
 <% @emojis.each do |emoji| %>
   <li class = "emoji <%=emoji.name%>">
-    <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>">
+    <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>.jpg">
     <div>
     <%= image_tag emoji.image.url %>
     </div>
