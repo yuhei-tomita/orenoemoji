@@ -1,0 +1,5 @@
+<%= form_for :emoji, url: '/emojis/create'  do |f| %>
+  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
+  <p><%=f.label ":emoji_name:" %><br><%= f.text_field :name %></p>
+  <p><%= f.submit value: '投稿' %></p>
+<% end %>
