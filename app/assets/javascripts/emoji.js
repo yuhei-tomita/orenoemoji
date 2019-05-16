@@ -13,7 +13,19 @@ $(document).on('turbolinks:load', function(){ //リロードしなくてもjsが
     .done(function(data){ //データを受け取ることに成功したら、dataを引数に取って以下のことする(dataには@usersが入っている状態ですね)
       $('#result').find('li').remove();  //idがresultの子要素のliを削除する
       $(data).each(function(i, emoji){ //dataをuserという変数に代入して、以下のことを繰り返し行う(単純なeach文ですね)
-        $('#result').append('<li>' + emoji.name + '<%= image_tag emoji.image.url %> </li>') //resultというidの要素に対して、<li>ユーザーの名前</li>を追加する。
+        $('#result').append(
+          '<li class = "emoji '+ emoji.name + '">' +
+          '<a href="'+ emoji.image.url +'" class="downloader"  download = "' + emoji.name +
+          '"> '  +
+          '<div>' +
+           '<img src ="' + emoji.image.url + '">' +
+          '</div>' +
+          '<div>' +
+          ' :'+ emoji.name+ ':' +
+          '</div>' +
+          '</a>' +
+          '</li>' )
+           //resultというidの要素に対して、<li>ユーザーの名前</li>を追加する。
   });
 });
   });
