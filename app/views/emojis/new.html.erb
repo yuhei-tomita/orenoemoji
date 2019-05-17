@@ -1,5 +1,17 @@
 <%= form_for :emoji, url: '/emojis/create'  do |f| %>
   <p><%=f.label "画像をアップロード" %><%= f.file_field :image %></p>
+  <% if @emoji.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@emoji.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @emoji.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
   <p><%=f.label ":emoji_name:" %><br><%= f.text_field :name %></p>
   <p><%= f.submit value: '投稿' %></p>
 <% end %>

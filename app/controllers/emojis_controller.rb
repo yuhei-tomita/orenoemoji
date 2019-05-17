@@ -1,5 +1,6 @@
 class EmojisController < ApplicationController
   def new
+    @emoji = Emoji.new
   end
 
   def show
