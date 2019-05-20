@@ -14,3 +14,24 @@
 
 $('#result').append('<li> emoji.name  <%= image_tag emoji.image.url %> </li>')
 //resultというidの要素に対して、<li>ユーザーの名前</li>を追加する。
+<!-- ここresultが帰ってきたときだけ表示にしたい -->
+<ul class = "emojis" id="result">
+
+</ul>
+
+<hr>
+
+<ul class = "emojis">
+<% @emojis.each do |emoji| %>
+  <li class = "emoji <%=emoji.name%>">
+    <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>.jpg">
+    <div>
+    <%= image_tag emoji.image.url %>
+    </div>
+    <div class = "name">
+    <%= ":" + emoji.name + ":"%>
+    </div>
+    </a>
+  </li>
+<% end %>
+</ul>

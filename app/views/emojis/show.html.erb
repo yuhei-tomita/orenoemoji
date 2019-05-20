@@ -5,30 +5,22 @@
   an unofficial* directory of the best custom slack emojis
 </h2>
 
-<div class="icon-search"></div>
-<input type=form id="form" placeholder=":hogehoge:" style="width: 250px;"/>
 
-<!-- ここresultが帰ってきたときだけ表示にしたい -->
-<ul class = "emojis" id="result">
-
-</ul>
-
-<hr>
 
 <ul class = "emojis">
-<% @emojis.each do |emoji| %>
-  <li class = "emoji <%=emoji.name%>">
-    <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>.jpg">
+
+    <a href="<%= @emoji.image.url %>" class="downloader"  download = "<%= @emoji.name %>.jpg">
     <div>
-    <%= image_tag emoji.image.url %>
+    <%= image_tag @emoji.image.url %>
     </div>
     <div class = "name">
-    <%= ":" + emoji.name + ":"%>
+    <%= ":" + @emoji.name + ":"%>
     </div>
     </a>
-  </li>
-<% end %>
 </ul>
-
+<li>
+<%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
+<%= link_to('削除',"/emojis/#{@emoji.id}/destroy",{method:"post"})  %>
+</li>
 <%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
 </div>

@@ -16,7 +16,7 @@
 <hr>
 
 <ul class = "emojis">
-<% @emojis.each do |emoji| %>
+<% @categories.categories_emojis.each do |emoji| %>
   <li class = "emoji <%=emoji.name%>">
     <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>.jpg">
     <div>
@@ -29,6 +29,7 @@
   </li>
 <% end %>
 </ul>
+
 
 <%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
 </div>
