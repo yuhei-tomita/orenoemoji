@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   post '/emojis/:id/update', to:'emojis#update'
   post '/emojis/:id/destroy', to:'emojis#destroy'
 
-  get  '/categories', to:'categories#show'
+  get  '/categories/new', to: 'categories#new'
+  post '/categories/create', to: 'categories#create'
+  get  '/categories/:id', to: 'categories#show'
+  get  '/categories/index', to: 'categories#index'
 
   resources :emojis do
     collection do

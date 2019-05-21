@@ -1,10 +1,10 @@
 class CreateCategoriesEmojis < ActiveRecord::Migration[5.2]
   def change
     create_table :categories_emojis do |t|
-      t.integer :category_id
-      t.integer :emoji_id
+      t.references :category, foreign_key: true
+      t.references :emoji, foreign_key: true
 
-      t.timestamps null:false
+      t.timestamps
     end
   end
 end

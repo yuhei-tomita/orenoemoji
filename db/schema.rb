@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_052501) do
+ActiveRecord::Schema.define(version: 2019_05_21_063632) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 2019_05_14_052501) do
   end
 
   create_table "categories_emojis", force: :cascade do |t|
+    t.integer "category_id"
     t.integer "emoji_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "categories_id"
+    t.index ["category_id"], name: "index_categories_emojis_on_category_id"
+    t.index ["emoji_id"], name: "index_categories_emojis_on_emoji_id"
   end
 
   create_table "emojis", force: :cascade do |t|

@@ -25,7 +25,6 @@ class EmojisController < ApplicationController
   end
 
   def update
-    binding.pry
     @emoji = Emoji.find_by(id: params[:id])
     @emoji.update(name: permit_params[:name],categories_id: permit_params[:categories_id])
     redirect_to("/emojis")

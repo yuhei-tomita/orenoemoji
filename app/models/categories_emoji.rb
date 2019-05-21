@@ -1,4 +1,4 @@
 class CategoriesEmoji < ApplicationRecord
-  belongs_to :categories
-  belongs_to :emojis
+  belongs_to :category
+  belongs_to :emoji
 end

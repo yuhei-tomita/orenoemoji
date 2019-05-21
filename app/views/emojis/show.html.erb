@@ -8,7 +8,6 @@
 
 
 <ul class = "emojis">
-
     <a href="<%= @emoji.image.url %>" class="downloader"  download = "<%= @emoji.name %>.jpg">
     <div>
     <%= image_tag @emoji.image.url %>
@@ -18,9 +17,9 @@
     </div>
     </a>
 </ul>
-<li>
+
 <%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
 <%= link_to('削除',"/emojis/#{@emoji.id}/destroy",{method:"post"})  %>
-</li>
+<br>
 <%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
 </div>

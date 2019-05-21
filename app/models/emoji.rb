@@ -3,9 +3,10 @@ class Emoji < ApplicationRecord
   validates :image, presence:true
   mount_uploader :image, ImageUploader
 
+
   has_many :categories, through: :categories_emojis
   has_many :categories_emojis
-
+  accepts_nested_attributes_for :categories_emojis
 
   def new
     @emoji = Emoji.new

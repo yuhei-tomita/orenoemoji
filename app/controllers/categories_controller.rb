@@ -1,6 +1,29 @@
-class CategoriesController < ApplicationController
-end
+  class CategoriesController < ApplicationController
 
-def show
-  @category = Category.find(params[:categories_id])
-end
+
+  def new
+    @category = Category.new
+  end
+
+  def index
+    @categories = Category.all
+  end
+
+  def create
+    @category = Category.new(permit_params)
+    if @category.save
+      redirect_to '/'
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @category = Category.find(params[:id])
+  end
+
+  private
+    def permit_params
+      params.require(:category).permit(:name)
+    end
+  end
