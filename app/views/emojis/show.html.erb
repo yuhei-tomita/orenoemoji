@@ -8,7 +8,6 @@
 
 
 <ul class = "emojis">
-    <a href="<%= @emoji.image.url %>" class="downloader"  download = "<%= @emoji.name %>.jpg">
     <% unless @emoji.categories.blank? %>
       <ul>
         <% @emoji.categories.each do |category| %>
@@ -24,7 +23,8 @@
     <div class = "name">
     <%= ":" + @emoji.name + ":"%>
     </div>
-    </a>
+    <a href="<%= @emoji.image.url %>" class="downloader" download="<%= @emoji.name %>.jpg">download</a>
+
 </ul>
 
 <%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
