@@ -9,6 +9,15 @@
 
 <ul class = "emojis">
     <a href="<%= @emoji.image.url %>" class="downloader"  download = "<%= @emoji.name %>.jpg">
+    <% unless @emoji.categories.blank? %>
+      <ul>
+        <% @emoji.categories.each do |category| %>
+          <li>
+            <%= link_to '#' + category.name,emojis_path(category_id:category.id) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <div>
     <%= image_tag @emoji.image.url %>
     </div>

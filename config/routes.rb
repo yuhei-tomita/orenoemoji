@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories_emojis/create'
+  get 'categories_emojis/destroy'
   root 'emojis#index'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
@@ -8,6 +10,16 @@ Rails.application.routes.draw do
   get  '/emojis/new', to: 'emojis#new'
   get  '/emojis/index',  to: 'emojis#index'
   post '/emojis/create', to: 'emojis#create'
+
+  resources :categories do
+    resource :categories_emojis, only: [:create, :destroy]
+  end
+
+  resources :emojis do
+    collection do
+      get 'search'
+    end
+  end
 
   get '/emojis/:id' , to: 'emojis#show'
   get   '/emojis/:id/edit' ,to: 'emojis#edit'
@@ -19,9 +31,5 @@ Rails.application.routes.draw do
   get  '/categories/:id', to: 'categories#show'
   get  '/categories/index', to: 'categories#index'
 
-  resources :emojis do
-    collection do
-      get 'search'
-    end
-  end
+
 end

@@ -18,7 +18,7 @@
 <ul class = "emojis">
 <% @emojis.each do |emoji| %>
   <li class = "emoji <%=emoji.name%>">
-    <a href="<%= emoji.image.url %>" class="downloader"  download = "<%= emoji.name %>.jpg">
+    <a href= <%= "/emojis/#{emoji.id}" %> >
     <div>
     <%= image_tag emoji.image.url %>
     </div>
@@ -26,6 +26,10 @@
     <%= ":" + emoji.name + ":"%>
     </div>
     </a>
+    <div>
+    <button type="button" ng-click="downLoadJson();">ダウンロード</button>
+    </div>
+
   </li>
 <% end %>
 </ul>

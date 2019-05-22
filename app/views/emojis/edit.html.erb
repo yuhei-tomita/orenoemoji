@@ -4,14 +4,31 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with model: @emoji do |f| %>
+      <% if @emoji.errors.any? %>
 
-          <%= f.label :name %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@emoji.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% @emoji.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+          <%= f.label :name ,":emoji name:"%>
           <%= f.text_field :name, class: 'form-control' %>
 
-          <%= f.label :categories_id %>
-          <%= f.number_field :categories_id, class: 'form-control' %>
+          <div class="emoji-tags-field">
+            <%= f.label "カテゴリ" %>
+            <ul id="emoji-tags">
+            </ul>
+            <%= hidden_field_tag :category_hidden,@category_list %>
+          </div>
 
-          <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <%= f.submit "変更を保存する", class: "btn btn-primary" %>
         <% end %>
   </div>
 </div>
