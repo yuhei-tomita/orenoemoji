@@ -19,8 +19,9 @@
   end
 
   def show
+
     @category = Category.find(params[:id])
-    @emojis= Emoji.from_category(params[:category_id])
+    @emojis= @category.emojis
   end
 
 

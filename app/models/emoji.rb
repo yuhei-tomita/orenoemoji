@@ -3,10 +3,10 @@ class Emoji < ApplicationRecord
   validates :image, presence:true
   mount_uploader :image, ImageUploader
 
-  has_many :categories_emojis , dependent: :destroy
+  has_many :categories_emojis, dependent: :destroy
   has_many :categories, through: :categories_emojis
 
-scope :from_category, -> (category_id){ where(id: emoji_ids = CategoriesEmoji.where(category_id: category_id).select(:emoji_id))}
+
 
   def new
     @emoji = Emoji.new
