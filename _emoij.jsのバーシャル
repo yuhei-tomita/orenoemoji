@@ -1,0 +1,11 @@
+'<li class = "emoji '+ emoji.name + '">' +
+'<a href="'+ emoji.image.url +'" class="downloader"  download = "' + emoji.name +
+'"> '  +
+'<div>' +
+ '<img src ="' + emoji.image.url + '">' +
+'</div>' +
+'<div>' +
+' :'+ emoji.name+ ':' +
+'</div>' +
+'</a>' +
+'</li>'

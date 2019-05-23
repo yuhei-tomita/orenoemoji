@@ -4,4 +4,6 @@ class CategoriesEmojisController < ApplicationController
 
   def destroy
   end
+
+
 end

@@ -13,6 +13,27 @@
     </div>
 </ul>
 
+<ul class = "emojis">
+<% @emojis.each do |emoji| %>
+  <li class = "emoji <%=emoji.name%>">
+    <a href= <%= "/emojis/#{emoji.id}" %> >
+    <div>
+    <%= image_tag emoji.image.url %>
+    </div>
+    <div class = "name">
+    <%= ":" + emoji.name + ":"%>
+    </div>
+    </a>
+    <div>
+    <button type="button">
+      <a href="<%= emoji.image.url %>" class="downloader" download="<%= emoji.name %>.jpg">download</a>
+    </button>
+    </div>
+
+  </li>
+<% end %>
+</ul>
+
 <hr>
 
 

@@ -15,15 +15,19 @@ $(document).on('turbolinks:load', function(){ //リロードしなくてもjsが
       $(data).each(function(i, emoji){ //dataをemojiという変数に代入して、以下のことを繰り返す
         $('#result').append(
           '<li class = "emoji '+ emoji.name + '">' +
-          '<a href="'+ emoji.image.url +'" class="downloader"  download = "' + emoji.name +
-          '"> '  +
+           '<a href= ' + ' "/emojis/'+emoji.id+'">' +
           '<div>' +
-           '<img src ="' + emoji.image.url + '">' +
+          ' <img src ="'+ emoji.image.url + '">' +
           '</div>' +
-          '<div>' +
-          ' :'+ emoji.name+ ':' +
+          '<div class = "name">'+
+          ' :'+ emoji.name +':' +
           '</div>' +
           '</a>' +
+          '<div>' +
+          '<button type="button">' +
+            '<a href="' + emoji.image.url +'" class="downloader" download="'+ emoji.name +'.jpg">download</a>' +
+          '</button>'+
+          '</div>' +
           '</li>' )
            //resultというidの要素に対して、<li class ="emoji">...</li>を追加する。
   });

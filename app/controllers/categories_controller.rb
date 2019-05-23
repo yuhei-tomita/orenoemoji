@@ -20,7 +20,10 @@
 
   def show
     @category = Category.find(params[:id])
+    @emojis= Emoji.from_category(params[:category_id])
   end
+
+
 
   private
     def permit_params

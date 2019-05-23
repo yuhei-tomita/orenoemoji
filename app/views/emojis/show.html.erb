@@ -12,7 +12,7 @@
       <ul>
         <% @emoji.categories.each do |category| %>
           <li>
-            <%= link_to '#' + category.name,emojis_path(category_id:category.id) %>
+            <%= link_to '#' + category.name,"/categories/#{category.id}"  %>
           </li>
         <% end %>
       </ul>
