@@ -3,6 +3,17 @@ class EmojisController < ApplicationController
     @emoji = Emoji.new
   end
 
+  def create
+    @emoji = Emoji.new(permit_params)
+    category_list = params[:category_list].split(",")
+    if @emoji.save
+      @emoji.save_categories(category_list)
+      redirect_to action: 'index'
+    else
+      render 'emojis/new'
+    end
+  end
+
   def show
     @emoji = Emoji.find(params[:id])
     if params[:category_id]
@@ -17,16 +28,7 @@ class EmojisController < ApplicationController
     @emojis = Emoji.all
   end
 
-  def create
-    @emoji = Emoji.new(permit_params)
-    category_list = params[:category_list].split(",")
-    if @emoji.save
-      @emoji.save_categories(category_list)
-      redirect_to action: 'index'
-    else
-      render 'emojis/new'
-    end
-  end
+
 
   def edit
     @emoji = Emoji.find(params[:id])
@@ -36,9 +38,10 @@ class EmojisController < ApplicationController
   def update
     @emoji = Emoji.find_by(id: params[:id])
     category_list = params[:category_list].split(",") #ここのオブジェクト、再確認
-    @emoji.update(name: permit_params[:name])
-    @emoji.save_categories(category_list)
-    redirect_to("/emojis")
+      @emoji.update(name: permit_params[:name])
+
+      @emoji.save_categories(category_list)
+      redirect_to("/emojis")
   end
 
 
