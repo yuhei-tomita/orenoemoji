@@ -35,8 +35,9 @@ class EmojisController < ApplicationController
 
   def update
     @emoji = Emoji.find_by(id: params[:id])
-    @category_list = params[:category_list].split(",") #ここのオブジェクト、再確認
-    @emoji.update(name: permit_params[:name],categories_id: permit_params[:categories_id])
+    category_list = params[:category_list].split(",") #ここのオブジェクト、再確認
+    @emoji.update(name: permit_params[:name])
+    @emoji.save_categories(category_list)
     redirect_to("/emojis")
   end
 

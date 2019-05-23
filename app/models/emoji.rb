@@ -12,7 +12,7 @@ scope :from_category, -> (category_id){ where(id: emoji_ids = CategoriesEmoji.wh
     @emoji = Emoji.new
   end
 
-  def save_categories(tags)
+  def save_categories(tags)  
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
     old_tags = current_tags - tags
     new_tags = tags - current_tags
