@@ -25,7 +25,6 @@
 *   jQuery UI v1.8+
 */
 (function($) {
-    console.log('ghjkl');
     $.widget('ui.tagit', {
         options: {
             allowDuplicates   : false,
@@ -79,6 +78,7 @@
 
             // Whether to animate tag removals or not.
             animate: true,
+
 
             // Optionally set a tabindex attribute on the input that gets
             // created for tag-it.
