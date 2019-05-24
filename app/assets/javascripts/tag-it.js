@@ -25,7 +25,7 @@
 *   jQuery UI v1.8+
 */
 (function($) {
-
+    console.log('ghjkl');
     $.widget('ui.tagit', {
         options: {
             allowDuplicates   : false,
@@ -588,4 +588,3 @@
 
     });
 })(jQuery);
-
