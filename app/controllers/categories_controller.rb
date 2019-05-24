@@ -1,6 +1,5 @@
   class CategoriesController < ApplicationController
 
-
   def new
     @category = Category.new
   end
@@ -23,7 +22,6 @@
     @category = Category.find(params[:id])
     @emojis= @category.emojis
   end
-
 
 
   private
