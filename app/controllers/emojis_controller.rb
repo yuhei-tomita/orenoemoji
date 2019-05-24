@@ -54,8 +54,10 @@ class EmojisController < ApplicationController
 
   def search
     @emojis = Emoji.where('name LIKE(?)', "%#{params[:keyword]}%")
-    respond_to do |format|
-      format.json { render 'index', json: @emojis } #json形式のデータを受け取ったら、@usersをデータとして返すそしてindex をrenderで表示する
+    unless params[:keyword].blank?
+      respond_to do |format|
+        format.json { render 'index', json: @emojis } #json形式のデータを受け取ったら、@usersをデータとして返すそしてindex をrenderで表示する
+      end
     end
   end
 
