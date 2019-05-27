@@ -10,6 +10,10 @@ body {
     margin: 0 auto;
 }
 
+ul.emojis {
+  margin-bottom: 30px;
+}
+
 ul.emojis li.emoji {
     display: inline-block;
     width: 145px;
@@ -22,4 +26,8 @@ ul.emojis li.emoji {
 
 ul.emojis div.name {
     font-size: 0.8em;
+}
+
+ul.emojis div.name_big {
+    font-size: 1.2em;
 }

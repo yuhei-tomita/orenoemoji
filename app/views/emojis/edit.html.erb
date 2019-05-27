@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with model: @emoji do |f| %>
-      <% if @emoji.errors.any? %>
 
+      <% if @emoji.errors.any? %>
       <div id="error_explanation">
         <div class="alert alert-danger">
           The form contains <%= pluralize(@emoji.errors.count, "error") %>.
@@ -16,6 +16,15 @@
             </ul>
           </div>
       <% end %>
+
+        <div id="img_field" onClick="$('#file').click()" >
+      <!--画像があるときは画像を表示する  -->
+          <% if @emoji.image.url.present? %>
+            <%= image_tag(@emoji.image.url) %>　
+          <% else %>
+            <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
+          <% end %>
+          </div>
 
           <%= f.label :name ,":emoji name:"%>
           <%= f.text_field :name, class: 'form-control' %>

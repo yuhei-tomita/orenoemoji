@@ -3,6 +3,20 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 <%= form_for :emoji, url: '/emojis/create'  do |f| %>
+    <!-- 入力フォームに不備があるときはエラーメッセージ表示 %> -->
+  <% if @emoji.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@emoji.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @emoji.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p><%=f.label "画像をアップロード" %>
 
   <div id="img_field" onClick="$('#file').click()" >
@@ -16,18 +30,8 @@
   </div>
 
     <%= f.file_field :image,class: "image", style: "display:none;", id: "file" %></p>
-  <% if @emoji.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(@emoji.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @emoji.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+
+
   <p><%=f.label ":emoji_name:" %><br><%= f.text_field :name %></p>
 
   <div class="emoji-tags-field">

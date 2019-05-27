@@ -9,10 +9,10 @@
 
 <ul class = "emojis">
     <% unless @emoji.categories.blank? %>
-      <ul>
+      <ul class="tagit" id="show">
         <% @emoji.categories.each do |category| %>
-          <li>
-            <%= link_to '#' + category.name,"/categories/#{category.id}"  %>
+          <li class="tagit-choice">
+            <%= link_to '# ' + category.name,"/categories/#{category.id}"  %>
           </li>
         <% end %>
       </ul>
@@ -20,11 +20,13 @@
     <div>
     <%= image_tag @emoji.image.url %>
     </div>
-    <div class = "name">
+    <div class = "name_big">
     <%= ":" + @emoji.name + ":"%>
     </div>
-    <a href="<%= @emoji.image.url %>" class="downloader" download="<%= @emoji.name %>.jpg">download</a>
 
+    <button type="button">
+    <a href="<%= @emoji.image.url %>" class="downloader" download="<%= @emoji.name %>.jpg">download</a>
+    </button>
 </ul>
 
 <%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
