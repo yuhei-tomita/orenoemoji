@@ -2,6 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
+   process :set_content_type
    process resize_and_pad:[100,100,background=:transparent]
 
   # Choose what kind of storage to use for this uploader:
@@ -11,6 +12,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :file
   end
   # storage :fog
+  def fog_attributes
+    {
+      'Content-Type' =>  'application/json;charset=utf-8',
+    }
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

@@ -10,6 +10,7 @@ if Rails.env.production?
     }
 
     config.fog_public = true
+    config.fog_attributes
 
     config.fog_directory     =  ENV['S3_BUCKET']
   end
