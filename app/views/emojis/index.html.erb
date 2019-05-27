@@ -15,6 +15,7 @@
 
 <hr>
 
+
 <ul class = "emojis">
 <% @emojis.each do |emoji| %>
   <li class = "emoji <%=emoji.name%>">
@@ -28,7 +29,7 @@
     </a>
     <div>
     <button type="button">
-      <a href="<%= emoji.name %>.jpg" class="downloader" download="<%= emoji.name %>.jpg">download</a>
+      <a href="<%= emoji.image.url %>" class="downloader" download="<%= emoji.name %>.jpg">download</a>
     </button>
     </div>
 

@@ -28,7 +28,7 @@
 </ul>
 
 <%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
-<%= link_to('削除',"/emojis/#{@emoji.id}/destroy",{method:"post"})  %>
+<%= link_to '削除',"/emojis/#{@emoji.id}/delete",method: :delete  %>
 <br>
 <%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
 </div>

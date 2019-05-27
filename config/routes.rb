@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get '/emojis/:id' , to: 'emojis#show'
   get   '/emojis/:id/edit' ,to: 'emojis#edit'
   post '/emojis/:id/update', to:'emojis#update'
-  post '/emojis/:id/destroy', to:'emojis#destroy'
+
 
   get  '/categories/new', to: 'categories#new'
   post '/categories/create', to: 'categories#create'
