@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
-   process :set_content_type
+   # process :set_content_type
    process resize_and_pad:[100,100,background=:transparent]
 
   # Choose what kind of storage to use for this uploader:
