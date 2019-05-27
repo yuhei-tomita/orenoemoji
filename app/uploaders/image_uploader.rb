@@ -14,7 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :fog
   def fog_attributes
     {
-      'Content-Type' =>  'application/json;charset=utf-8',
+      'Content-Type' =>  'binary/octet-stream',
     }
 
   # Override the directory where uploaded files will be stored.
