@@ -30,7 +30,39 @@ ul.tagit li.tagit-choice {
 
 ul.button{
 
+}
 
+.top-logo {
+
+}
+
+.top-logo:hover {
+  text-decoration:none;
+}
+
+.edit-btn {
+  margin-bottom: 10px;
+}
+
+.btn-social-giza a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 17px;
+}
+.btn-social-giza .fa-stack-1x {
+  color: white;
+  font-size: 15px;
+}
+.btn-social-giza .fa-stack-2x {
+  transition: .5s;
+}
+.btn-social-giza .btn-social-giza-twitter .fa-stack-2x {
+  color: #74c1f8;
+}
+
+.btn-social-giza a:hover .fa-stack-2x {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 
 #form{

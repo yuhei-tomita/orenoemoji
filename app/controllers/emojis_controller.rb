@@ -40,7 +40,7 @@ class EmojisController < ApplicationController
     category_list = params[:category_list].split(",") #ここのオブジェクト、再確認
     if @emoji.update(name: permit_params[:name])
       @emoji.save_categories(category_list)
-      redirect_to("/emojis")
+      render 'emojis/show'
     else
       render 'emojis/edit'
     end

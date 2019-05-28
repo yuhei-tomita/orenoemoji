@@ -1,9 +1,11 @@
 <div class="center jumbotron">
-<h1>ORE NO EMOJI</h1>
+  <div class="top-logo">
+  <h1>ORE NO EMOJI</h1>
 
-<h2>
-  俺の絵文字をみろ
-</h2>
+  <h2>
+    俺の絵文字をみろ
+  </h2>
+  </div>
 
 <div class="icon-search"></div>
 <input type=form id="form" placeholder="search" style="width: 250px;"/>
@@ -27,11 +29,18 @@
     <%= ":" + emoji.name + ":"%>
     </div>
     </a>
-    <div>
-    <button type="button" >
-      <a href="<%= emoji.image.url %>" class="downloader" download="<%= emoji.name %>.png">download</a>
-    </button>
+
+    <div class="btn-social-giza">
+  <!--以下twitter-->
+    <a href="<%= emoji.image.url %>" class="btn-social-giza-twitter" download="<%= emoji.name %>.png">
+      <span class="fa-stack">
+      <i class="fa fa-certificate fa-stack-2x"></i>
+      <i class="fas fa-download fa-stack-1x"></i>
+      </span>
+    </a>
+
     </div>
+
 
   </li>
 <% end %>

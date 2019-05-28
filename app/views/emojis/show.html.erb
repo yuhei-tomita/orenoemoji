@@ -1,9 +1,13 @@
 <div class="center jumbotron">
-<h1>ORE no EMOJI</h1>
+  <div class="top-logo">
+    <a href="/">
+  <h1>ORE NO EMOJI</h1>
 
-<h2>
-  an unofficial* directory of the best custom slack emojis
-</h2>
+  <h2>
+    俺の絵文字をみろ
+  </h2>
+    </a>
+  </div>
 
 
 
@@ -29,8 +33,9 @@
     </button>
 </ul>
 
-<%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
-<%= link_to '削除',"/emojis/#{@emoji.id}/delete",method: :delete  %>
-<br>
+  <div class="edit-btn">
+  <%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
+  <%# <%= link_to '削除',"/emojis/#{@emoji.id}/delete",method: :delete  %>
+  </div>
 <%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
 </div>
