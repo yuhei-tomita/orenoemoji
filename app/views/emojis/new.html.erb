@@ -22,8 +22,7 @@
   <div id="img_field" onClick="$('#file').click()" >
     <!--画像があるときは画像を表示する  -->
     <% if @emoji.image.url.present? %>
-      <%= image_tag(@emoji.image.url) %>
-      <%= @emoji.image.name %>　
+      <%= image_tag(@emoji.image.url) %>　
     <% else %>
       <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
     <% end %>
@@ -32,10 +31,10 @@
     <%= f.file_field :image,class: "image", style: "display:none;", id: "file" %></p>
 
 
-  <p><%=f.label ":emoji_name:" %><br><%= f.text_field :name %></p>
+  <p><%=f.label ":emoji_name:" %><br><%= f.text_field :name, :placeholder=>"hogehoge"%></p>
 
   <div class="emoji-tags-field">
-    <%= f.label "カテゴリー" %>
+    <%= f.label "タグ" %>
     <ul id="emoji-tags">
     </ul>
   </div>
