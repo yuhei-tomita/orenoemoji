@@ -7,12 +7,10 @@
 
 
 <ul class = "categories">
-<% @categoriess.each do |category| %>
-  <li class = "category <%=category.name%>">
-    <div class = "name">
-    <%= category.name %>
-    </div>
-    </a>
-  </li>
+<% @categories.each do |category| %>
+  
+    <li class="tagit-choice">
+      <%= link_to '# ' + category.name,"/categories/#{category.id}"  %>
+    </li>
 <% end %>
 </ul>
