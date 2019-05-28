@@ -23,10 +23,14 @@ $(document).on('turbolinks:load', function(){ //リロードしなくてもjsが
           ' :'+ emoji.name +':' +
           '</div>' +
           '</a>' +
-          '<div>' +
-          '<button type="button">' +
-            '<a href="' + emoji.image.url +'" class="downloader" download="'+ emoji.name +'.jpg">download</a>' +
-          '</button>'+
+          '<div class="btn-social-giza">' +
+            '<a href="' + emoji.image.url +'" class="btn-social-giza-twitter" download="'+ emoji.name +'.png">' +
+            '<span class="fa-stack">' +
+            '<i class="fa fa-certificate fa-stack-2x"></i>' +
+            '<i class="fas fa-download fa-stack-1x"></i>' +
+            '</span>'+
+          '</a>' +
+
           '</div>' +
           '</li>' )
            //resultというidの要素に対して、<li class ="emoji">...</li>を追加する。
