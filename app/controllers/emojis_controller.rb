@@ -25,7 +25,7 @@ class EmojisController < ApplicationController
   end
 
   def index
-    @emojis = Emoji.all
+    @emojis = Emoji.all.shuffle
   end
 
 
