@@ -5,7 +5,7 @@
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.all.shuffle
   end
 
   def create
@@ -18,11 +18,14 @@
   end
 
   def show
-
     @category = Category.find(params[:id])
     @emojis= @category.emojis
   end
 
+  def search
+    @categories = Category.where('name LIKE(?)', "%#{params[:keyword]}%")
+    render json: @categories
+  end
 
   private
     def permit_params

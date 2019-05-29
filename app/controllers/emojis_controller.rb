@@ -57,7 +57,7 @@ class EmojisController < ApplicationController
     @emojis = Emoji.where('name LIKE(?)', "%#{params[:keyword]}%")
     unless params[:keyword].blank?
       respond_to do |format|
-        format.json { render 'index', json: @emojis } #json形式のデータを受け取ったら、@usersをデータとして返すそしてindex をrenderで表示する
+        format.json { render 'index', json: @emojis } #json形式のデータを受け取ったら、@emojisをデータとして返すそしてindex をrenderで表示する
       end
     end
   end

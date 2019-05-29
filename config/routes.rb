@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resource :categories_emojis, only: [:create, :destroy]
   end
 
+  resources :categories do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :emojis do
     collection do
       get 'search'
