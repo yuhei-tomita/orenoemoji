@@ -44,5 +44,8 @@
   <%= link_to '編集', "/emojis/#{@emoji.id}/edit", method: :get %>　
   <%# <%= link_to '削除',"/emojis/#{@emoji.id}/delete",method: :delete  %>
   </div>
-<%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
+
+  <div class="upload-btn">
+    <%= link_to "俺の絵文字を提案する", '/emojis/new', class: "btn btn-lg btn-primary" %>
+  </div>
 </div>

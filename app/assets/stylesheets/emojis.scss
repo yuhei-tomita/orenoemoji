@@ -41,7 +41,13 @@ ul.button{
 }
 
 .edit-btn {
-  margin-bottom: 10px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  margin-left: 55px;
+}
+
+.upload-btn{
+  margin-left:30px;
 }
 
 .btn-social-giza a {
@@ -103,18 +109,18 @@ ul.button{
 }
 
 #img_field i {
-  font-size: 100px;
+  font-size: 60px;
   color: #aaa;
-  line-height: 250px;
+  line-height: 100px;
   transition: 0.3s ease-out;
 }
 
 #img_field i.add {
   display: none;
-  font-size: 50px;
+  font-size: 20px;
   position: absolute;
-  top: -90px;
-  right: 15px;
+  top: -27px;
+  right: 11px;
 }
 
 #img_field:hover {
