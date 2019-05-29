@@ -24,11 +24,11 @@
 
   def search
     @categories = Category.where('name LIKE(?)', "%#{params[:keyword]}%")
-    render json: @categories
+    render json: @categories.as_json
   end
 
   private
     def permit_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name,)
     end
   end
